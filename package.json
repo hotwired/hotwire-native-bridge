@@ -1,0 +1,41 @@
+{
+  "name": "@hotwired/hotwire-native-bridge",
+  "version": "1.0.0-beta1",
+  "description": "Web library for building Bridge Components in Hotwire Native apps.",
+  "main": "dist/hotwire-native-bridge.js",
+  "files": [
+    "dist/*.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hotwired/hotwire-native-bridge.git"
+  },
+  "keywords": [
+    "hotwire",
+    "native",
+    "bridge"
+  ],
+  "author": "37signals LLC",
+  "contributors": [
+    "Jay Ohms <jay@37signals.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hotwired/hotwire-native-bridge/issues"
+  },
+  "homepage": "https://native.hotwired.dev",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rm -rf build/* dist/*",
+    "build": "bin/build.js",
+    "release": "yarn build && npm publish"
+  },
+  "devDependencies": {
+    "esbuild": "^0.17.16"
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": "^3.2.1"
+  }
+}
