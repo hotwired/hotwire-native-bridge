@@ -1,12 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
 import { BridgeElement } from "./bridge_element"
-import { isHotwireNativeApp } from "./helpers/user_agent"
+import { appSupportsBridgeComponent } from "./helpers/user_agent"
 
 export class BridgeComponent extends Controller {
   static component = ""
 
   static get shouldLoad() {
-    return isHotwireNativeApp
+    return appSupportsBridgeComponent(this.component)
   }
 
   pendingMessageCallbacks = []
