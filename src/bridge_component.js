@@ -69,6 +69,6 @@ export class BridgeComponent extends Controller {
   }
 
   get bridge() {
-    return window.Strada.web
+    return window.HotwireNative.web
   }
 }
