@@ -15,11 +15,30 @@ export class BridgeComponent extends Controller {
     this.pendingMessageCallbacks = []
   }
 
-  connect() {}
+  connect() {
+    this.removeRestoreEventListener()
+    this.addRestoreEventListener()
+  }
 
   disconnect() {
     this.removePendingCallbacks()
     this.removePendingMessages()
+    this.removeRestoreEventListener()
+  }
+
+  addRestoreEventListener() {
+    this.restore = this.restore.bind(this)
+    document.addEventListener("native:restore", this.restore)
+  }
+
+  removeRestoreEventListener() {
+    document.removeEventListener("native:restore", this.restore)
+  }
+
+  restore() {
+    // Manually call connect() so the native bridge component has
+    // a chance to restore its view state if it needs to be recreated.
+    this.connect()
   }
 
   get component() {
