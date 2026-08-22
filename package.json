@@ -3,6 +3,7 @@
   "version": "1.2.2",
   "description": "Web library for building Bridge Components in Hotwire Native apps.",
   "main": "dist/hotwire-native-bridge.js",
+  "type": "module",
   "files": [
     "dist/*.js"
   ],
@@ -29,7 +30,8 @@
   },
   "scripts": {
     "clean": "rm -rf build/* dist/*",
-    "build": "bin/build.js",
+    "build": "bin/build.cjs",
+    "test": "npm run build && node --test test/*.test.js",
     "release": "yarn build && npm publish"
   },
   "devDependencies": {
