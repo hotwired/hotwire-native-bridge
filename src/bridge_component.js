@@ -18,12 +18,14 @@ export class BridgeComponent extends Controller {
   connect() {
     this.removeRestoreEventListener()
     this.addRestoreEventListener()
+    this.bridge.componentDidConnect(this.component)
   }
 
   disconnect() {
     this.removePendingCallbacks()
     this.removePendingMessages()
     this.removeRestoreEventListener()
+    this.bridge.componentDidDisconnect(this.component)
   }
 
   addRestoreEventListener() {
